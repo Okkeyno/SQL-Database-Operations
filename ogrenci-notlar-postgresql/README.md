@@ -1,10 +1,10 @@
-# 📚 Veritabanı Yönetimi ve Sorgulama Örnekleri
+# Veritabanı Yönetimi ve Sorgulama Örnekleri
 
 **PostgreSQL** veritabanı programında işlenen tablolar ve sorgularını içermektedir.
 
 ---
 
-## 🛠️ Tablolar
+## Tablolar
 
 CREATE TABLE bolum (
     id SERIAL PRIMARY KEY,
@@ -72,9 +72,8 @@ INSERT INTO kayit (ogrenci_id, ders_id, notu, donem) VALUES
 (8, 2, 62, '2025-Güz');
 
 
-# 2. Veri Sorgulama Örnekleri (DQL)
-## Filtreleme ve Mantıksal Koşullar
-Not ortalaması 50'den büyük veya ismi 'P' harfi ile başlayan öğrencilerin listelenmesi:
+# 2. Veri Sorgulama Örnekleri
+## Not ortalaması 50'den büyük veya ismi 'P' harfi ile başlayan öğrencilerin listelenmesi:
 
 SQL
 SELECT identify, ad, not_ort
@@ -82,9 +81,7 @@ FROM ogrenci
 WHERE not_ort > 50.00 OR ad ILIKE 'P%'
 ORDER BY not_ort DESC;
 
-## Çoklu Tablo Birleştirme
-Öğrencilerin aldığı dersler, bu derslerin notları, kredileri ve ait oldukları bölümlerin detaylı raporu:
-
+## Öğrencilerin aldığı dersler, bu derslerin notları, kredileri ve ait oldukları bölümlerin detaylı raporu:
 SQL
 SELECT 
     o.ad AS ogrenci_adi,
@@ -98,7 +95,7 @@ INNER JOIN ders d ON k.ders_id = d.id
 INNER JOIN bolum b ON d.bolum_id = b.id
 ORDER BY k.notu DESC;
 
-## Gruplama ve Şartlı Filtreleme (GROUP BY & HAVING)
+## Gruplama ve Şartlı Filtreleme
 Bölüm bazlı toplam ders sayısı ve ortalama kredi değerleri (Sadece toplam kredisi 3'ten büyük bölümler):
 
 SQL
@@ -111,8 +108,7 @@ LEFT JOIN ders d ON b.id = d.bolum_id
 GROUP BY b.id, b.ad
 HAVING SUM(d.kredi) > 3;
 
-## İleri Düzey SQL: CTE ve Pencere Fonksiyonları (Window Functions)
-Öğrencileri aldıkları ders notlarına göre sıralayan ve sınıf ortalamasının üzerinde not alanları filtreleyen sorgu:
+## Öğrencileri aldıkları ders notlarına göre sıralayan ve sınıf ortalamasının üzerinde not alanları filtreleyen sorgu
 
 SQL
 WITH BasariSiralamasi AS (
@@ -134,9 +130,8 @@ SELECT
     ROUND(genel_ders_notu_ortalamasi, 2) AS sinif_ortalamasi
 FROM BasariSiralamasi
 WHERE notu > genel_ders_notu_ortalamasi;
-🔹 5. Alt Sorgu (Subquery) ile Kaydı Olmayan Verileri Bulma
-Sisteme kayıtlı olup henüz herhangi bir ders kaydı bulunmayan öğrencilerin tespiti:
 
+## Sisteme kayıtlı olup henüz herhangi bir ders kaydı bulunmayan öğrencilerin tespiti:
 SQL
 SELECT identify, ad, not_ort
 FROM ogrenci o
