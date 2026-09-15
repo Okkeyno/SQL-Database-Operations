@@ -1,6 +1,6 @@
 # SQL-Database-Operations
 
-## Database Management Examples & Exercises
+## Database Management Examples 
 ## SQL Sorguları
 
 SoftITO Yapay Zeka Yazılımcılığı eğitimi kapsamında hazırlanan uygulama ve ödev çalışmaları yer almaktadır.
@@ -8,8 +8,8 @@ SoftITO Yapay Zeka Yazılımcılığı eğitimi kapsamında hazırlanan uygulama
 ## İçerik
 
 ### 1. SQLite - Oyuncak Kutusu Alıştırması (`/01-sqlite-oyuncak-kutusu`)
-* **Veritabanı Engine:** SQLite 3
-* **Açıklama:** Tablo oluşturma, kısıtlamalar (CHECK, DEFAULT), CRUD operasyonları, `ALTER TABLE` ve tarih/saat fonksiyonları pratikleri.
+* **Veritabanı Engine:** SQLite 
+* **Açıklama:** Tablo oluşturma, sorgulama örnekleri
 
 ### 2. PostgreSQL - [Okul] (`/02-postgresql-okul`)
 * **Veritabanı Engine:** PostgreSQL
